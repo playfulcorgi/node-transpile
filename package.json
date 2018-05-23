@@ -1,5 +1,5 @@
 {
-  "name": "@playfulcorgi/node-transpile",
+  "name": "node-transpile",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
