@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- node
+- 9.3.0
+cache: yarn
+deploy:
+  provider: npm
+  email: unrulybeardedweekend@gmail.com
+  on:
+    branch: master
+  api_key:
+    secure: tCr2xf8aSy1ATBOcwJgFv7yci2g7h3HGqWLpM6/Osu0fUz+HWrjMhLvf+XNyGXI23o82NxKwVZ93i2o/1CzCD8Qf04QphFiYytFy9qw/Fsl7IPun1c+ULVHrRYPOCFbTaWHzKlAOK/hGMQbJretwRsvlfJg7pNXCr+U/HKYMo9rvUKQW2Sr3SJcvJbzIRNn3+GcwRrGw3MMslI8zUnZoNG3erx+f/+5o6+XLUYQB7bjlAVQwXCSO4l1xvUSq1R3ieXzoLjDe9Da5J9rkOpYwnw5pMGWSfj7F2Fw7TkUlQIlayJ8jnl058FX1mi4W/LfOIwHD2bEFov1t84pw8UIF3fCJXsr4ixPJ3+7ROBvHuOtbz1q3x6y1ST/pohwoC8r0eaTeY5xEvFTByIcpe4Mzzya4DxUfoUWt39xa0r5d6qRGva+3gnWIl19ry1gNKpis2WGgi1QCZKMH2HjQ6Mzfvd9QVCXcjdyfxohBIVUO9dg8MiZHbxbWoL5P0ISV9Xr0du6HH6S+wgjZ1gCqG4bwm8NIMk/jwrQSaS3ZaT65AjLf2YvumgPCwC/hIHtndtv0CvWSLFsjijonH7syaCTSG8mODi8ERudkYvrPltZABENfMYjE8On5ijJEJDZClFQals0J+/e2dqnZnaXvWXk54mI6MEp+9bpvpKJUbv7nJ8g=
