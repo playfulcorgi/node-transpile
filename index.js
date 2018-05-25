@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const parseArgs = require('minimist')(process.argv.slice(2))
-const shouldWatch = parseArgs._[0] === 'watch'
 const webpack = require('webpack')
 const { resolve } = require('path')
 const PrettyStats = require('./webpack-plugins/PrettyStats')
 const ProgressBar = require('./webpack-plugins/ProgressBar')
 
+const shouldWatch = parseArgs._[0] === 'watch'
 const baseDirectoryPath = process.cwd()
 const packagePath = __dirname
 
