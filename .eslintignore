@@ -1,0 +1,5 @@
+/dist
+/.eslintrc
+/package.json
+/package-lock.json
+/babelHelpers.js
