@@ -44,8 +44,7 @@ const webpackConfiguration = {
         test: /\.js$/,
         include: baseDirectoryPath,
         exclude: [
-          resolve(baseDirectoryPath, 'node_modules'),
-          resolve(baseDirectoryPath, 'babelHelpers.js')
+          resolve(baseDirectoryPath, 'node_modules')
         ],
         use: {
           loader: 'babel-loader'
