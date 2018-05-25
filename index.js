@@ -13,7 +13,7 @@ const srcDirectoryPath = resolve(baseDirectoryPath, 'src')
 const distDirectoryPath = resolve(baseDirectoryPath, 'dist')
 const nodeExternals = require('webpack-node-externals')
 
-const compiler = webpack({
+const webpackConfiguration = {
   watch: shouldWatch,
   context: baseDirectoryPath,
   plugins: [
@@ -58,15 +58,25 @@ const compiler = webpack({
   },
   resolve: {
     symlinks: false,
-    alias: {
-      fu: resolve(srcDirectoryPath, 'functional-utils/'),
-      utils$: resolve(srcDirectoryPath, 'functional-utils/utils.js')
-    },
     modules: [
       srcDirectoryPath,
       resolve(packagePath, 'node_modules'), 'node_modules',
       'node_modules'
     ]
   }
-}, () => { })
+}
+
+const customConfigurationContext = require.context(baseDirectoryPath, false, /^node-transpile\.js$/)
+let customConfiguration
+if (customConfigurationContext.keys().length === 0) {
+  customConfiguration = null
+} else {
+  customConfiguration = customConfigurationContext(
+    resolve(baseDirectoryPath, 'node-transpile.js')
+  )(webpackConfiguration)
+}
+
+const compiler = webpack(webpackConfiguration, () => {
+  /* no-op */
+})
 
