@@ -13,6 +13,18 @@ const srcDirectoryPath = resolve(baseDirectoryPath, 'src')
 const distDirectoryPath = resolve(baseDirectoryPath, 'dist')
 const nodeExternals = require('webpack-node-externals')
 
+let customConfiguration
+try {
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  customConfiguration = require(resolve(baseDirectoryPath, 'node-transpile.js'))
+} catch (error) {
+  if (error.code === 'MODULE_NOT_FOUND') {
+    customConfiguration = null
+  } else {
+    throw error
+  }
+}
+
 const webpackConfiguration = {
   watch: shouldWatch,
   context: baseDirectoryPath,
@@ -65,14 +77,8 @@ const webpackConfiguration = {
   }
 }
 
-const customConfigurationContext = require.context(baseDirectoryPath, false, /^node-transpile\.js$/)
-let customConfiguration
-if (customConfigurationContext.keys().length === 0) {
-  customConfiguration = null
-} else {
-  customConfiguration = customConfigurationContext(
-    resolve(baseDirectoryPath, 'node-transpile.js')
-  )(webpackConfiguration)
+if (customConfiguration !== null) {
+  customConfiguration(webpackConfiguration)
 }
 
 const compiler = webpack(webpackConfiguration, () => {
