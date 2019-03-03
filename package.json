@@ -1,6 +1,6 @@
 {
   "name": "node-transpile",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
@@ -10,29 +10,22 @@
   "scripts": {
     "test": "echo 'no tests yet'"
   },
-  "files": [
-    "webpack-plugins",
-    "babelHelpers.js",
-    "index.js",
-    "README.md"
-  ],
-  "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/runtime": "^7.3.1",
+    "babel-loader": "^8.0.5",
     "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-builtin-extend": "^1.1.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.4.1",
     "minimist": "^1.2.0",
-    "progress-bar-webpack-plugin": "^1.11.0",
-    "react-dev-utils": "^5.0.1",
-    "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.3",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "react-dev-utils": "^7.0.3",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3",
     "webpack-node-externals": "^1.7.2"
   }
 }

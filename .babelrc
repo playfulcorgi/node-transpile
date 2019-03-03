@@ -1,10 +1,8 @@
 {
   "presets": ["env", "stage-0"],
   "plugins": [
-    "transform-object-rest-spread",
     "transform-class-properties",
-    ["babel-plugin-transform-builtin-extend", {
-      "globals": ["Error", "Array"]
-    }]
+    "transform-object-rest-spread",
+    "@babel/plugin-transform-runtime"
   ]
 }

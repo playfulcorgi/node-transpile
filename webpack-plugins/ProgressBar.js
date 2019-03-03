@@ -3,7 +3,7 @@ const chalk = require('chalk')
 
 module.exports = function ProgressBar() {
   return new ProgressBarPlugin({
-    format: `  build [:bar] ${chalk.green.bold(':percent')} (:elapsed seconds)`,
+    format: `build [:bar] ${chalk.green.bold(':percent')} (:elapsed seconds)`,
     clear: false
   })
 }
