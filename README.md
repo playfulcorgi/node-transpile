@@ -2,11 +2,17 @@
 
 Packages Babel files into runnable Node.js code using [Webpack](https://webpack.js.org/).
 
+The goal is to have an incredibly simple way of generating Node.js projects using the newest and sometimes experimental JavaScript syntax. Also, using Webpack and Babel for Node.js packages is a little different than for front-end packages. For example, there's no need to support older browsers. node-transpile already contains an appropriate configuration for this task.
+
 ## Quickstart
 
-First, add `node-transpile` as a dev dependency to a Node project:
+First, add `node-transpile` as a dev dependency to a Node.js project:
 ```terminal
 npm install --save-dev node-transpile
+```
+or
+```terminal
+yarn add --dev node-transpile
 ```
 
 Second, inside package.json, add scripts:
@@ -21,24 +27,8 @@ Third, inside package.json set `main`:
 ```json
 "main": "dist/index.js"
 ```
-node-transpile will process src/index.js into dist/index.js.
 
-Since node-transpile uses Babel, it's possible to use a .babelrc file and adjust how it modifies source JS files.
-
-For example:
-```json
-{
-  "presets": ["env", "stage-0"],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties",
-    ["babel-plugin-transform-builtin-extend", {
-      "globals": ["Error", "Array"]
-    }]
-  ]
-}
-
-```
+With the above configuration, node-transpile will process src/index.js into dist/index.js.
 
 ## Custom Webpack Configuration
 
