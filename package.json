@@ -1,6 +1,6 @@
 {
   "name": "@playfulcorgi/node-transpile",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "index.js",
   "license": "MIT",
   "bin": "./index.js",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo 'no tests yet'"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
