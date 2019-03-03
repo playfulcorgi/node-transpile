@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const parseArgs = require('minimist')(process.argv.slice(2))
 const webpack = require('webpack')
 const { resolve } = require('path')
@@ -30,15 +31,15 @@ const webpackConfiguration = {
   context: baseDirectoryPath,
   plugins: [
     new ProgressBar(),
-    new PrettyStats()
+    new PrettyStats(),
+    new webpack.BannerPlugin({ banner: '#!/usr/bin/env node', raw: true })
   ],
   externals: [
     nodeExternals()
   ],
   entry: {
     index: [
-      'babel-polyfill',
-      resolve(packagePath, 'babelHelpers.js'),
+      resolve(packagePath, 'load-sourcemaps.js'),
       resolve(srcDirectoryPath, 'index.js')
     ]
   },
@@ -54,25 +55,30 @@ const webpackConfiguration = {
     rules: [
       {
         test: /\.js$/,
-        include: baseDirectoryPath,
-        exclude: [
-          resolve(baseDirectoryPath, 'node_modules')
-        ],
-        use: {
-          loader: 'babel-loader'
-        }
+        include: srcDirectoryPath,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.js$/,
+        include: /node_modules/,
+        use: 'source-map-loader',
+        enforce: 'pre'
       }
     ]
   },
   resolveLoader: {
-    modules: [resolve(packagePath, 'node_modules'), 'node_modules']
+    modules: [
+      srcDirectoryPath,
+      resolve(packagePath, 'node_modules'),
+      'node_modules'
+    ]
   },
   resolve: {
     symlinks: false,
     modules: [
       srcDirectoryPath,
-      resolve(packagePath, 'node_modules'), 'node_modules',
-      'node_modules'
+      resolve(packagePath, 'node_modules'),
+      'node_modules',
     ]
   }
 }
